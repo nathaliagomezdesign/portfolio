@@ -262,9 +262,8 @@ u{ text-underline-offset:3px; text-decoration-thickness:1px; }
    Everything is positioned in Figma pixels (--l, --t, --cx, --w, --h, --fs, --lh) and scaled with the width
    of the page: --u is "1 Figma pixel". */
 .desk-only{ display:none; }
-/* the 1440 px layout scales with the window; below 1100 px its text would get too small, so tablets use the mobile layout */
-@media (min-width:1100px){ .desk-only{ display:block; } .mob-only{ display:none !important; } }
-.dk{ container-type:inline-size; position:relative; width:100%; max-width:2000px; margin-inline:auto; --u:calc(100cqw / 1440); color:var(--plum); line-height:1.29; }
+@media (min-width:760px){ .desk-only{ display:block; } .mob-only{ display:none !important; } }
+.dk{ container-type:inline-size; position:relative; width:100%; margin-inline:auto; --u:calc(100cqw / 1440); color:var(--plum); line-height:1.29; }
 .dk-hero{ aspect-ratio:1440 / 856; }
 .dk-work{ aspect-ratio:1440 / 1230; }
 .dk-about{ aspect-ratio:1440 / 2087; overflow:hidden; }
@@ -317,7 +316,7 @@ u{ text-underline-offset:3px; text-decoration-thickness:1px; }
 
 /* ═══════════════ Desktop case studies (laid out from the Figma frames, 1440 px) ═══════════════
    Each block keeps the gap it has in the design (inline margins in --u units); content flows, so translations never overlap. */
-.dkc{ container-type:inline-size; position:relative; width:100%; max-width:2000px; margin-inline:auto; --u:calc(100cqw / 1440); overflow:hidden; color:#502d55; font-family:var(--text); line-height:1.29; }
+.dkc{ container-type:inline-size; position:relative; width:100%; margin-inline:auto; --u:calc(100cqw / 1440); overflow:hidden; color:#502d55; font-family:var(--text); line-height:1.29; }
 .dkc .b{ position:relative; box-sizing:border-box; display:flow-root; }
 .dkc ul, .dkc li{ list-style:none; margin:0; padding:0; }
 .dkc h2, .dkc h3, .dkc h4, .dkc p{ margin:0; }
@@ -383,6 +382,36 @@ u{ text-underline-offset:3px; text-decoration-thickness:1px; }
 
 /* translations are longer than the English design: keep intro texts inside their card */
 html:not([lang="en"]) .dkc [style*="--mx"]{ width:calc(var(--mx) * var(--u)) !important; }
+
+/* Readability floor: the design (1440 px) scales with the window, so on narrower screens small texts never go below a comfortable size.
+   Blocks flow, so a bigger text simply takes more lines. */
+.dkc .t-p, .dkc .t-intro, .dkc .t-intro-c, .dkc .t-note, .dkc .dk-info{ font-size:max(15px, calc(20 * var(--u))); }
+.dkc .dk-info{ line-height:1.5; }
+.dkc .t-sub{ font-size:max(17px, calc(24 * var(--u))); }
+.dkc .dk-band{ font-size:max(17px, calc(32 * var(--u))); }
+.dkc .dk-ul > li::before{ top:max(8px, calc(8 * var(--u))); }
+.dkc .bl, .dkc .bi{ font-size:max(13px, calc(22 * var(--u))); }
+.dkc .bi{ line-height:1.6; }
+.dkc .dk-btn{ font-size:max(17px, calc(32 * var(--u))); }
+.dkc .dk-cta .t-note{ font-size:max(14px, calc(20 * var(--u))); }
+.dk .dk-card-sub, .dk .dk-card-tags{ font-size:max(14px, calc(20 * var(--u))); }
+.dk .dk-btn{ font-size:max(16px, calc(32 * var(--u))); }
+.dk .dk-chip{ font-size:max(15px, calc(38 * var(--u))); }
+.dk .dk-text{ font-size:max(16px, calc(38 * var(--u))); }
+.dk .dk-note{ font-size:max(14px, calc(20 * var(--u))); }
+
+/* images inside side-by-side columns follow the column width (they scale with the page) */
+.dkc .rc > img{ width:100%; height:auto; }
+/* Contact me (desktop) */
+.dk-contact-d{ aspect-ratio:1440 / 1636; overflow:hidden; }
+.dk .dk-fl-contact{ left:calc(var(--u) * 1136.49); top:calc(var(--u) * -218.68); width:calc(var(--u) * 350.562); height:auto; max-width:none; transform:rotate(-32.67deg); pointer-events:none; }
+.dk .dk-contact{ display:block; text-decoration:none; color:#502d55; }
+.dk .dk-contact img{ display:block; max-width:none; }
+.dk .dk-ct{ position:absolute; white-space:nowrap; font-size:max(16px, calc(var(--u) * 38)); line-height:1.29; }
+@media (hover:hover){ .dk .dk-contact:not(.dk-mail):hover .dk-ct{ text-decoration:underline; } }
+.dk .dk-mail{ cursor:default; -webkit-tap-highlight-color:transparent; }
+.dk .dk-italic{ font-size:max(16px, calc(var(--u) * 38)); }
+.dk-contact-d .dk-lilac-text{ padding-top:0; }
 
 </style>
 </head>
@@ -733,7 +762,19 @@ html:not([lang="en"]) .dkc [style*="--mx"]{ width:calc(var(--mx) * var(--u)) !im
   </div>
 </article></section>
 
-<section id="contact" class="contact" aria-labelledby="contact-title">
+<section id="contact"><div class="dk dk-contact-d desk-only" aria-labelledby="contact-title-d" role="region">
+  <img class="p dk-fl-contact" src="img/dk-flowers.webp" alt="" aria-hidden="true" width="1080" height="1920" loading="lazy">
+  <h2 class="p dk-boldonse" id="contact-title-d" style="--l:34;--t:70;--fs:152;--lh:286" data-i18n="contact.title">Contact me</h2>
+  <p class="p dk-italic" style="--l:42;--t:337;--fs:38" data-i18n="contact.subtitle">Let's connect and build something meaningful together</p>
+  <p class="p dk-text" style="--l:42;--t:407;--w:1376;--fs:38" data-i18n="contact.text">Whether you have an open Junior UX/UI position, a freelance project, or just want to say hi, my inbox is always open!</p>
+  <a class="p dk-contact" style="--l:319;--t:626;--w:821;--h:96" href="https://wa.me/393445443117" target="_blank" rel="noopener"><img src="img/icon-whatsapp.svg" alt="WhatsApp" width="95" height="96" style="width:calc(95.00 * var(--u));height:calc(96.00 * var(--u))"><span class="dk-ct" style="left:calc(121.00 * var(--u));top:calc(26.00 * var(--u))">+39 3445443117</span><span class="sr-only" data-i18n="contact.newtab"> (opens in a new tab)</span></a>
+  <a class="p dk-contact" style="--l:321;--t:763;--w:827;--h:95" href="https://www.linkedin.com/in/nathalie-g%C3%B3mez" target="_blank" rel="noopener"><img src="img/icon-linkedin.svg" alt="LinkedIn" width="95" height="95" style="width:calc(95.00 * var(--u));height:calc(95.00 * var(--u))"><span class="dk-ct" style="left:calc(127.00 * var(--u));top:calc(22.00 * var(--u))">www.linkedin.com/in/nathalie-gómez</span><span class="sr-only" data-i18n="contact.newtab"> (opens in a new tab)</span></a>
+  <a class="p dk-contact dk-mail" style="--l:322;--t:910;--w:826;--h:69" href="mailto:nathalia8gomez@gmail.com"><img src="img/icon-gmail.svg" alt="Gmail" width="91" height="69" style="width:calc(91.00 * var(--u));height:calc(69.00 * var(--u))"><span class="dk-ct" style="left:calc(126.00 * var(--u));top:calc(18.00 * var(--u))">nathalia8gomez@gmail.com</span></a>
+  <div class="p dk-lilac" style="--l:0;--t:1063;--h:96"></div>
+  <p class="p dk-lilac-text" style="--l:61;--t:1063;--h:96;--w:1340;--fs:38"><span data-i18n="contact.location"><u>Location &amp; Availability</u>: Based in Italy · Open to full-time remote &amp; hybrid roles</span></p>
+  <a class="p dk-btn" style="--cx:411.5;--t:1391" href="#about" data-i18n="btn.aboutMe">About me</a>
+  <a class="p dk-btn" style="--cx:995.5;--t:1391" href="#work" data-i18n="btn.viewWork">View my work</a>
+</div><div class="contact mob-only" aria-labelledby="contact-title" role="region">
   <img class="flower flower-contact" src="img/flower-contact.webp" width="254" height="275" loading="lazy" decoding="async" alt="">
   <h2 class="giant" id="contact-title" data-i18n="contact.title">Contact me</h2>
   <p class="intro" data-i18n="contact.subtitle">Let's connect and build something meaningful together</p>
@@ -748,7 +789,7 @@ html:not([lang="en"]) .dkc [style*="--mx"]{ width:calc(var(--mx) * var(--u)) !im
     <a class="btn btn-lg" href="#about" data-i18n="btn.aboutMe">About me</a>
     <a class="btn btn-lg" href="#work" data-i18n="btn.viewWork">View my work</a>
   </div>
-</section>
+</div></section>
 
 </main>
 
