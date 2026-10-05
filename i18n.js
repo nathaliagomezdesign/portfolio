@@ -96,7 +96,7 @@ window.PORTFOLIO_I18N = {
   "work.title": {
     en: `View my work`,
     es: `Ver mi trabajo`,
-    it: `Guarda il mio lavoro`
+    it: `Il mio lavoro`
   },
   "work.intro": {
     en: `A selection of projects I've worked on in the areas of UX|UI and product design`,

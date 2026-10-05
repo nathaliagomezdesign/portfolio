@@ -7,7 +7,7 @@
 <meta name="description" content="Portfolio of Nathalia Gómez, UX/UI & Product Designer based in Italy. Case studies: Realidad Au Pair and Angel Fashion." data-i18n-content="page.description">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;0,800;1,500;1,600;1,700&family=Instrument+Sans:wdth,wght@75..100,400..700&family=Poiret+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;0,800;1,500;1,600;1,700&family=Boldonse&family=Instrument+Sans:wdth,wght@75..100,400..700&family=Poiret+One&display=swap" rel="stylesheet">
 <style>
 :root{
   --plum:#502d55; --plum-mid:#8f7993; --lilac:#b8aab8; --lilac-soft:#dbd3dc;
@@ -257,6 +257,63 @@ u{ text-underline-offset:3px; text-decoration-thickness:1px; }
   .contact .band{ text-align:left; }
 }
 
+
+/* ═══════════════ Desktop: Home / View my work / About me (built from the Figma frame, 1440 px) ═══════════════
+   Everything is positioned in Figma pixels (--l, --t, --cx, --w, --h, --fs, --lh) and scaled with the width
+   of the page: --u is "1 Figma pixel". */
+.desk-only{ display:none; }
+@media (min-width:760px){ .desk-only{ display:block; } .mob-only{ display:none !important; } }
+.dk{ container-type:inline-size; position:relative; width:100%; max-width:2000px; margin-inline:auto; --u:calc(100cqw / 1440); color:var(--plum); line-height:1.29; }
+.dk-hero{ aspect-ratio:1440 / 856; }
+.dk-work{ aspect-ratio:1440 / 1230; }
+.dk-about{ aspect-ratio:1440 / 2087; overflow:hidden; }
+.dk .p{ position:absolute; margin:0; left:calc(var(--u) * var(--l, 0)); top:calc(var(--u) * var(--t, 0));
+  width:calc(var(--u) * var(--w)); height:calc(var(--u) * var(--h)); font-size:calc(var(--u) * var(--fs)); line-height:calc(var(--u) * var(--lh)); }
+.dk-boldonse{ font-family:'Boldonse','Atkinson Hyperlegible Next',sans-serif; font-weight:400; font-style:normal; white-space:nowrap; letter-spacing:0; transform:translateY(0.0263em); }
+.dk-poiret{ font-family:'Poiret One','Atkinson Hyperlegible Next',sans-serif; font-weight:400; white-space:nowrap; }
+.dk-italic{ font-style:italic; font-weight:500; }
+.dk .dk-banner{ width:100%; display:flex; align-items:center; padding:calc(var(--u) * 6) 0 0 calc(var(--u) * 38); box-sizing:border-box; background:#502d55; color:#fffefc; }
+.dk-banner span{ font-size:calc(var(--u) * var(--fs)); line-height:1.2; padding-right:calc(var(--u) * 20); }
+.dk .dk-lilac{ width:100%; background:rgba(80,45,85,0.4); }
+.dk .dk-lilac-text{ width:calc(var(--u) * var(--w)); display:flex; align-items:center; line-height:1.2; padding-top:calc(var(--u) * 6); box-sizing:border-box; }
+.dk .dk-band-text{ display:flex; align-items:center; justify-content:flex-start; text-align:left; padding:0 calc(var(--u) * 100) calc(var(--u) * 6) calc(var(--u) * 150); box-sizing:border-box; line-height:1.3; }
+.dk .dk-btn{ left:calc(var(--u) * var(--cx)); transform:translateX(-50%); width:auto; height:calc(var(--u) * 75); min-width:calc(var(--u) * 345);
+  display:flex; align-items:center; justify-content:center; padding:0 calc(var(--u) * 32); box-sizing:border-box; white-space:nowrap;
+  background:#502d55; color:#f8f4e9; border-radius:calc(var(--u) * 8); text-decoration:none;
+  font-family:'Atkinson Hyperlegible Next',sans-serif; font-weight:800; font-size:calc(var(--u) * 32); line-height:1.2;
+  filter:drop-shadow(0 calc(var(--u) * 8) calc(var(--u) * 3) rgba(0,0,0,0.25)); box-shadow:none; }
+@media (hover:hover){ .dk .dk-btn:hover{ background:#61396a; } }
+.dk .dk-fl{ height:auto; max-width:none; transform-origin:0 0; transform:rotate(-19.775deg); pointer-events:none; }
+
+.dk .dk-cards{ display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:calc(var(--u) * 59); align-items:stretch; height:auto; }
+.dk-card{ position:relative; overflow:hidden; box-sizing:border-box; display:flex; flex-direction:column; align-items:flex-start; background:#fff;
+  border:1px solid #502d55; border-radius:calc(var(--u) * 22); min-height:calc(var(--u) * 404); padding:calc(var(--u) * 94) 0 calc(var(--u) * 18) calc(var(--u) * 38); }
+.dk-card > *{ position:relative; z-index:1; }
+.dk-card .dk-card-img{ position:absolute; z-index:0; max-width:none; height:auto; }
+.dk-card-phones{ left:calc(var(--u) * 439); top:calc(var(--u) * 2); width:calc(var(--u) * 184); }
+.dk-card-tablet{ left:calc(var(--u) * 68); top:calc(var(--u) * -159); width:calc(var(--u) * 622); }
+.dk-card-title{ font-size:calc(var(--u) * 38); line-height:calc(var(--u) * 71); margin:0; }
+.dk-card-sub{ margin:calc(var(--u) * 8) 0 0 calc(var(--u) * 3); font-size:max(12px, calc(var(--u) * 20)); line-height:1.2; max-width:calc(var(--u) * 560); }
+.dk-card-aupair .dk-card-sub{ max-width:calc(var(--u) * 490); }
+.dk-card-angel .dk-card-sub{ max-width:calc(var(--u) * 607); }
+.dk .dk-btn-card{ position:static; transform:none; margin:calc(var(--u) * 41) 0 0 calc(var(--u) * 94); }
+.dk-card-tags{ margin:calc(var(--u) * 49) 0 0 calc(var(--u) * 44); font-size:max(12px, calc(var(--u) * 20)); line-height:1.2; width:calc(var(--u) * 491); }
+
+.dk-text{ font-weight:400; line-height:1.29; }
+.dk-text u, .dk-text{ text-decoration-thickness:from-font; text-underline-position:from-font; }
+.dk .dk-chip{ left:calc(var(--u) * var(--cx)); transform:translateX(-50%); width:calc(var(--u) * 332); height:auto; min-height:calc(var(--u) * 67); box-sizing:border-box;
+  display:flex; align-items:center; justify-content:center; text-align:center; padding:calc(var(--u) * 8) calc(var(--u) * 18); border-radius:calc(var(--u) * 40); background:#907e93; color:#fff;
+  font-size:calc(var(--u) * 38); line-height:1.1; white-space:normal; }
+.dk .dk-chip-dark{ background:#654f6d; }
+.dk .dk-quote{ width:100%; display:flex; align-items:center; padding:0 0 calc(var(--u) * 6) calc(var(--u) * 56); box-sizing:border-box; }
+.dk-quote p{ margin:0; line-height:1.2; }
+.dk .dk-circle{ border-radius:50%; background:rgba(121, 106, 133, 0.295); }
+.dk .dk-circle-text{ overflow:visible; }
+.dk-circle-text text{ font-family:'Atkinson Hyperlegible Next',sans-serif; font-size:30.6px; letter-spacing:2.2px; fill:#502d55; }
+.dk .dk-portrait{ border-radius:50%; object-fit:cover; max-width:none; }
+.dk .dk-note{ font-style:italic; font-weight:600; line-height:1.2; }
+.dk .dk-arrow{ max-width:none; }
+
 </style>
 </head>
 <body>
@@ -284,7 +341,18 @@ u{ text-underline-offset:3px; text-decoration-thickness:1px; }
 
 <main id="main">
 
-<section id="home-top" class="home">
+<section id="home-top"><div class="dk dk-hero desk-only">
+  <h1 class="sr-only">Portfolio — Nathalia Gómez</h1>
+  <div class="p dk-lilac" style="--l:0;--t:760;--h:96"></div>
+  <p class="p dk-lilac-text dk-italic" style="--l:83;--t:760;--h:96;--w:1340;--fs:38" data-i18n="home.tagline">Bridging user needs with business strategy through human-centered design</p>
+  <p class="p dk-banner" style="--l:0;--t:0;--h:96"><span class="dk-italic" style="--fs:38" data-i18n="home.banner">Open to Junior UX/UI & Product Design roles · Based in Italy · Open to remote</span></p>
+  <span class="p dk-poiret" aria-hidden="true" style="--l:983;--t:497;--fs:122;--lh:163">Gómez</span>
+  <a class="p dk-btn" style="--cx:730.5;--t:610" href="#work" data-i18n="btn.viewWork">View my work</a>
+  <img class="p dk-fl" src="img/dk-rose.webp" alt="" aria-hidden="true" loading="lazy" style="--l:-161.95;--t:380.11;--w:515.04">
+  <span class="p dk-boldonse" aria-hidden="true" style="--l:52;--t:151;--fs:152;--lh:286">Portfolio</span>
+  <img class="p dk-fl" src="img/dk-hydrangea.webp" alt="" aria-hidden="true" loading="lazy" style="--l:1015.79;--t:152.0;--w:436.35">
+  <span class="p dk-poiret" aria-hidden="true" style="--l:731;--t:372;--fs:122;--lh:163">Nathalia</span>
+</div><div class="home mob-only">
   <img class="flower flower-rose" src="img/flower-rose.webp" width="400" height="499" alt="">
   <img class="flower flower-hydrangea" src="img/flower-hydrangea.webp" width="278" height="391" alt="">
   <p class="top-banner" data-i18n="home.banner">Open to Junior UX/UI & Product Design roles · Based in Italy · Open to remote</p>
@@ -294,9 +362,28 @@ u{ text-underline-offset:3px; text-decoration-thickness:1px; }
     <a class="btn" href="#work" data-i18n="btn.viewWork">View my work</a>
   </div>
   <p class="band band-italic" data-i18n="home.tagline">Bridging user needs with business strategy through human-centered design</p>
-</section>
+</div></section>
 
-<section id="work" class="work" aria-labelledby="work-title">
+<section id="work"><div class="dk dk-work desk-only" aria-labelledby="work-title-d" role="region">
+  <h2 class="p dk-boldonse" id="work-title-d" style="--l:69;--t:137;--fs:152;--lh:286" data-i18n="work.title">View my work</h2>
+  <p class="p dk-lilac dk-band-text" style="--l:0;--t:547;--h:96;--fs:32" data-i18n="work.intro">A selection of projects I've worked on in the areas of UX|UI and product design</p>
+  <div class="p dk-cards" style="--l:63;--t:693;--w:1313">
+    <article class="dk-card dk-card-aupair">
+      <img class="dk-card-img dk-card-phones" src="img/card-aupair-phones.webp" alt="" width="184" height="398">
+      <h3 class="dk-card-title dk-boldonse">Realidad Au Pair</h3>
+      <p class="dk-card-sub" data-i18n="work.aupair.sub">A digital ecosystem streamlining the au pair journey</p>
+      <a class="dk-btn dk-btn-card" href="#realidad-aupair"><span data-i18n="btn.viewCase">View case study</span><span class="sr-only"> — Realidad Au Pair</span></a>
+      <p class="dk-card-tags" data-i18n="work.aupair.tags">Product Design · UX Research · UX/UI · Content Design</p>
+    </article>
+    <article class="dk-card dk-card-angel">
+      <img class="dk-card-img dk-card-tablet" src="img/card-angel-tablet.webp" alt="" width="622" height="629">
+      <h3 class="dk-card-title dk-boldonse">Angel Fashion</h3>
+      <p class="dk-card-sub" data-i18n="work.angel.sub">Redesigning a multi-location beauty salon for effortless booking</p>
+      <a class="dk-btn dk-btn-card" href="#angel-fashion"><span data-i18n="btn.viewCase">View case study</span><span class="sr-only"> — Angel Fashion</span></a>
+      <p class="dk-card-tags" data-i18n="work.angel.tags">Product Design · Responsive · UX/UI · Content Design</p>
+    </article>
+  </div>
+</div><div class="work mob-only">
   <h2 class="giant giant-condensed" id="work-title" data-i18n="work.title">View my work</h2>
   <p class="band" data-i18n="work.intro">A selection of projects I've worked on in the areas of UX|UI and product design</p>
   <div class="cards">
@@ -315,15 +402,34 @@ u{ text-underline-offset:3px; text-decoration-thickness:1px; }
       <p class="card-tags" data-i18n="work.angel.tags">Product Design · Responsive · UX/UI · Content Design</p>
     </article>
   </div>
-</section>
+</div></section>
 
-<section id="about" class="about" aria-labelledby="about-title">
+<section id="about"><div class="dk dk-about desk-only" aria-labelledby="about-title-d" role="region">
+  <h2 class="p dk-boldonse" id="about-title-d" style="--l:52;--t:145;--fs:152;--lh:286" data-i18n="about.title">About me</h2>
+  <p class="p dk-text" style="--l:49;--t:421;--w:980;--fs:38" data-i18n="about.intro">I'm a UX/UI &amp; Product Designer with an 8-year <u>background managing a business</u>. Combining first-hand business experience with user research, I build human-centered digital products that balance user empathy with business viability.</p>
+  <h3 class="p dk-boldonse" style="--l:51;--t:774;--fs:60;--lh:113" data-i18n="about.approach">My Approach</h3>
+  <span class="p dk-chip" style="--cx:285;--t:929" data-i18n="about.chip1">Research-Driven</span><span class="p dk-chip dk-chip-dark" style="--cx:710;--t:929" data-i18n="about.chip2">Business-Minded</span><span class="p dk-chip" style="--cx:1152;--t:929" data-i18n="about.chip3">Human-Centered</span>
+  <blockquote class="p dk-lilac dk-quote dk-italic" style="--l:0;--t:1068;--h:96;--fs:38"><p data-i18n="about.quote">“Good design starts with understanding the problem, not just opening Figma”</p></blockquote>
+  <h3 class="p dk-boldonse" style="--l:61;--t:1255;--fs:60;--lh:113" data-i18n="about.currently">Currently</h3>
+  <p class="p dk-text" style="--l:67;--t:1381;--w:1354;--fs:38" data-i18n="about.currently.text">I'm currently seeking Junior UX/UI or Product Design opportunities where <u>I can bring a fresh, creative perspective</u>, continuously learn, and contribute meaningfully within a collaborative team.</p>
+  <div class="p dk-circle" aria-hidden="true" style="--l:801;--t:28;--w:845;--h:845"></div>
+  <svg class="p dk-circle-text" aria-hidden="true" viewBox="0 0 845 845" style="--l:801;--t:28;--w:845;--h:845">
+    <path id="dkArc" d="M36.5,422.5 A386,386 0 0 1 808.5,422.5" fill="none"/>
+    <text><textPath href="#dkArc" startOffset="41.7%" text-anchor="middle" data-i18n="nav.tag">UX|UI · Product Designer</textPath></text>
+  </svg>
+  <img class="p dk-portrait" src="img/portrait-cutout.webp" width="1080" height="1080" loading="lazy" decoding="async" alt="" style="--l:801;--t:28;--w:845;--h:845">
+  <img class="p dk-fl" src="img/dk-rose.webp" alt="" aria-hidden="true" loading="lazy" style="--l:1093.46;--t:1563.33;--w:388.59">
+  <p class="p dk-note" style="--l:207;--t:1766;--w:405;--fs:20" data-i18n="about.connect">Let's connect and build something together</p>
+  <img class="p dk-arrow" src="img/arrow.svg" alt="" width="71" height="114" style="--l:626;--t:1776;--w:71;--h:114">
+  <a class="p dk-btn" style="--cx:427.5;--t:1838" href="#contact" data-i18n="btn.contactMe">Contact me</a>
+  <a class="p dk-btn" style="--cx:1011.5;--t:1838" href="#work" data-i18n="btn.viewWork">View my work</a>
+</div><div class="about mob-only">
   <div class="about-top">
     <div class="about-text">
       <h2 class="giant giant-condensed" id="about-title" data-i18n="about.title">About me</h2>
       <p class="lead" data-i18n="about.intro">I'm a UX/UI &amp; Product Designer with an 8-year <u>background managing a business</u>. Combining first-hand business experience with user research, I build human-centered digital products that balance user empathy with business viability.</p>
     </div>
-    <img class="portrait" src="img/portrait.webp" width="507" height="508" loading="lazy" decoding="async" alt="Portrait of Nathalia Gómez, UX|UI · Product Designer" data-i18n-alt="about.portrait.alt">
+    <img class="portrait" src="img/portrait-m.webp" width="507" height="508" loading="lazy" decoding="async" alt="Portrait of Nathalia Gómez, UX|UI · Product Designer" data-i18n-alt="about.portrait.alt">
   </div>
   <h3 class="h-display" data-i18n="about.approach">My Approach</h3>
   <ul class="chips">
@@ -342,7 +448,7 @@ u{ text-underline-offset:3px; text-decoration-thickness:1px; }
       <a class="btn btn-lg" href="#work" data-i18n="btn.viewWork">View my work</a>
     </div>
   </div>
-</section>
+</div></section>
 
 <article id="realidad-aupair" class="case" aria-labelledby="aupair-title">
   <header class="case-head">
