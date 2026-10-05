@@ -44,6 +44,11 @@ window.PORTFOLIO_I18N = {
     es: `Contacto`,
     it: `Contatti`
   },
+  "nav.mywork": {
+    en: `My work`,
+    es: `Mi trabajo`,
+    it: `Il mio lavoro`
+  },
   "nav.tag": {
     en: `UX|UI · Product Designer`,
     es: `UX|UI · Diseñadora de Producto`,
@@ -1150,5 +1155,25 @@ window.PORTFOLIO_I18N = {
     en: `About me`,
     es: `Sobre mí`,
     it: `Chi sono`
+  },
+  "aupair.ig.link": {
+    en: `Realidad Au Pair on Instagram (opens in a new tab)`,
+    es: `Realidad Au Pair en Instagram (se abre en una pestaña nueva)`,
+    it: `Realidad Au Pair su Instagram (si apre in una nuova scheda)`
+  },
+  "btn.contactMeCap": {
+    en: `Contact Me`,
+    es: `Contáctame`,
+    it: `Contattami`
+  },
+  "btn.nextProjectCap": {
+    en: `Next Project`,
+    es: `Siguiente proyecto`,
+    it: `Progetto successivo`
+  },
+  "angel.ig.link": {
+    en: `Angel Fashion on Instagram (opens in a new tab)`,
+    es: `Angel Fashion en Instagram (se abre en una pestaña nueva)`,
+    it: `Angel Fashion su Instagram (si apre in una nuova scheda)`
   }
 };
